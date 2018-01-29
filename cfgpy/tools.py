@@ -139,6 +139,23 @@ class CfgPy(object):
 
 		self.delimited_file_column_names = column_names
 
+	def read_element(self, element_path):
+		"""
+		takes a tuple of keys
+		returns node found in cfg_dict
+		found by traversing cfg_dict by successive 
+		application of keys from element_path
+		"""
+
+		# doesn't support DELIMITED, only dict-based formats
+		if self.format == FMT_DELIMITED:
+			return None
+
+		node = self.cfg_dict
+		for key in element_path:
+			node = node[key]
+		return node
+
 	def load_using_delimited_format_explicitly(self):
 
 		comment_pattern = re.compile(r'^[\t ]*#')
