@@ -160,6 +160,14 @@ class CfgPy(object):
 
 		return self.read_element(element_path)
 
+	def read_value(self, element_path):
+
+		return self.read_element(element_path)
+
+	def get_value(self, element_path):
+
+		return self.read_element(element_path)
+
 	def load_using_delimited_format_explicitly(self):
 
 		comment_pattern = re.compile(r'^[\t ]*#')
