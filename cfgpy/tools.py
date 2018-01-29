@@ -382,7 +382,7 @@ class CfgPy(object):
 		"""
 		if self.format == FMT_INI:
 			if self.filepaths:
-				self.load_using_ini_format_explicitly()
+				return self.load_using_ini_format_explicitly()
 			return self.load_using_ini_format_implicitly()
 
 		elif self.format == FMT_DELIMITED:
