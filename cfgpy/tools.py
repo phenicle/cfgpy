@@ -156,6 +156,10 @@ class CfgPy(object):
 			node = node[key]
 		return node
 
+	def get_element(self, element_path):
+
+		return self.read_element(element_path)
+
 	def load_using_delimited_format_explicitly(self):
 
 		comment_pattern = re.compile(r'^[\t ]*#')
