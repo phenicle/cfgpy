@@ -106,6 +106,7 @@ class CfgPy(object):
 		self.field_delimiter = None
 		self.cfg_dict = {}
 		self.cfg_list = []
+		self.load()
 
 	def set_field_delimiter(self, field_delimiter):
 
@@ -421,7 +422,7 @@ class CfgPy(object):
 
 		return self.cfg_dict
 
-class Cfg("CfgPy"):
+class Cfg(CfgPy):
 
 	def __init__(self, format_specifier, confdir, filepaths=None):
 
