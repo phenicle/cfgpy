@@ -16,7 +16,6 @@ FMT_XML = 3
 FMT_JSON = 4
 FMT_YAML = 5
 
-
 def determine_file_extension_based_on_format(format_specifier):
 	""" returns file extension string """
 	if format_specifier == FMT_INI:
@@ -422,6 +421,13 @@ class CfgPy(object):
 
 		return self.cfg_dict
 
+class Cfg("CfgPy"):
+
+	def __init__(self, format_specifier, confdir, filepaths=None):
+
+		CfgPy.__init__(self, format_specifier, confdir, filepaths)
+
+		
 if __name__ == "__main__":
 
 	pp = pprint.PrettyPrinter(indent=4)
