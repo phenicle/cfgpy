@@ -100,6 +100,8 @@ class CfgPy(object):
 		self.format = format_specifier
 		""" validated by attempts to load files from here? """
 		self.confdir = confdir
+		if not isinstance(filepaths, list):
+			filepaths = [filepaths]
 		self.filepaths = filepaths
 		self.file_extension = determine_file_extension_based_on_format(format_specifier)
 		self.delimited_file_column_names = None
