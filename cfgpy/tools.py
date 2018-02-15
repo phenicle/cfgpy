@@ -167,6 +167,35 @@ class CfgPy(object):
 		argtuple = tuple(arglist)
 		return self.read_element_using_argtuple(argtuple)
 
+	def has(self, *args):
+
+		r = None
+		try:
+			r = self.read_element_using_splatargs(*args)
+
+		except:
+			return False
+
+		if r == None:
+			return False
+
+		return True
+
+	def has_element(self, *args):
+
+		r = None
+		try:
+			r = self.read_element_using_splatargs(*args)
+
+		except:
+			return False
+
+		if r == None:
+			return False
+
+		return True
+
+
 	def read_element(self, *args):
 
 		return self.read_element_using_splatargs(*args)
