@@ -141,7 +141,7 @@ class CfgPy(object):
 
 		self.delimited_file_column_names = column_names
 
-	def read_element(self, element_path):
+	def read_element_using_argtuple(self, argtuple):
 		"""
 		takes a tuple of keys
 		returns node found in cfg_dict
@@ -154,25 +154,60 @@ class CfgPy(object):
 			return None
 
 		node = self.cfg_dict
-		for key in element_path:
+		for key in argtuple:
 			node = node[key]
 		return node
 
-	def get_element(self, element_path):
+	def read_element_using_splatargs(self, *args):
 
-		return self.read_element(element_path)
+		arglist = []
+		for arg in args:
+			arglist.append(arg)
 
-	def get(self, element_path):
+		argtuple = tuple(arglist)
+		return self.read_element_using_argtuple(argtuple)
 
-		return self.read_element(element_path)
+	def read_element(self, *args):
 
-	def read_value(self, element_path):
+		return self.read_element_using_splatargs(*args)
 
-		return self.read_element(element_path)
+	def get_element(self, *args):
 
-	def get_value(self, element_path):
+		return self.read_element_using_splatargs(*args)
 
-		return self.read_element(element_path)
+	def get(self, *args):
+
+		return self.read_element_using_splatargs(*args)
+
+	def read_value(self, *args):
+
+		return self.read_element_using_splatargs(*args)
+
+	def get_value(self, *args):
+
+		return self.read_element_using_splatargs(*args)
+
+	def get_list(self, *args):
+
+		unicode_element = self.read_element_using_splatargs(*args)
+		string_element = str(unicode_element)
+		return yaml.load(string_element)
+
+	def get_element_as_list(self, *args):
+
+		return self.get_list(*args)
+
+	def get_as_list(self, *args):
+
+		return self.get_list(*args)
+
+	def read_as_list(self, *args):
+
+		return self.get_list(*args)
+
+	def read_element_as_list(self, *args):
+
+		return self.get_list(*args)	
 
 	def load_using_delimited_format_explicitly(self):
 

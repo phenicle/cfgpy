@@ -7,7 +7,7 @@ with open("README", 'r') as f:
 
 setup(
    name='cfgpy',
-   version='1.0.7',
+   version='1.1.0',
    description='A simple, flexible, and powerful config reader for Python',
    license="Mozilla Public License 2.0 (MPL 2.0)",
    long_description='A simple, flexible, and powerful config reader for Python. Features include support for multiple formats (ini, xml, json, yaml), layering (default, environment, local), and load modes (implicit, explicit)',
