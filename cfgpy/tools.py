@@ -162,6 +162,10 @@ class CfgPy(object):
 
 		return self.read_element(element_path)
 
+	def get(self, element_path):
+
+		return self.read_element(element_path)
+
 	def read_value(self, element_path):
 
 		return self.read_element(element_path)
